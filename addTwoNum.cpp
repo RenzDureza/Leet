@@ -61,16 +61,28 @@ Solution intToList(int val) {
   return list;
 }
 
+void displayList(Solution list) {
+  ListNode *temp = list.head;
+  while (temp != nullptr) {
+    cout << "[" << temp->data << "] -> ";
+    temp = temp->next;
+  }
+  cout << "nullptr" << endl;
+}
+
 int main() {
   Solution list1;
-  list1.insertNode(2);
+  list1.insertNode(5);
   list1.insertNode(4);
   list1.insertNode(3);
+  displayList(list1);
 
   Solution list2;
-  list2.insertNode(5);
+  list2.insertNode(7);
   list2.insertNode(6);
   list2.insertNode(4);
+  displayList(list2);
 
-  intToList(listToInt(list1) + listToInt(list2));
+  Solution sumList = intToList(listToInt(list1) + listToInt(list2));
+  displayList(sumList);
 }
